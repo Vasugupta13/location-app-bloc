@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "108732770122",
+    "project_id": "parkin-assessment-133",
+    "storage_bucket": "parkin-assessment-133.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108732770122:android:3a93843b03a36d788583b3",
+        "android_client_info": {
+          "package_name": "com.parkin.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSDmV7ayVPCVURXPyQS9E7SSwKI87uTSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
