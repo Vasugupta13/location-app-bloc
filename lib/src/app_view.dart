@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parkin_assessment/src/configs/config.dart';
 import 'package:parkin_assessment/src/constants/color_constant.dart';
-import 'package:parkin_assessment/src/constants/enums.dart';
 import 'package:parkin_assessment/src/presentation/common_blocs/auth/bloc.dart';
 import 'package:parkin_assessment/src/presentation/common_blocs/common_bloc.dart';
 import 'package:parkin_assessment/src/presentation/screens/splash/app_data.dart';

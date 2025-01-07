@@ -1,5 +1,4 @@
 import 'package:parkin_assessment/src/constants/color_constant.dart';
-import 'package:parkin_assessment/src/constants/enums.dart';
 import 'package:parkin_assessment/src/presentation/screens/signup/bloc/signup_bloc.dart';
 import 'package:parkin_assessment/src/utils/gradient_button.dart';
 import 'package:parkin_assessment/src/utils/snackbars_and_toasts.dart';
