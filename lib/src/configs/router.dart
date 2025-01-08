@@ -4,6 +4,7 @@ import 'package:parkin_assessment/src/presentation/screens/signup/signup_screen.
 import 'package:parkin_assessment/src/presentation/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+///Routing class
 class AppRouter {
   static const String SPLASH = '/splash';
   static const String LOGIN = '/login';

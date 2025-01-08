@@ -20,6 +20,7 @@ class _SaveDataTabWidgetState extends State<SaveDataTabWidget> {
     super.initState();
     context.read<SaveDataBloc>().add(FetchUserData());
   }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -34,70 +35,95 @@ class _SaveDataTabWidgetState extends State<SaveDataTabWidget> {
               }
               return Column(
                 children: [
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Expanded(
                     child: ListView.builder(
                       itemCount: state.userDataList.length,
                       itemBuilder: (context, index) {
                         final userData = state.userDataList[index];
                         return Padding(
-                          padding: const EdgeInsets.only(left: 15,right: 15,bottom: 12),
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 12),
                           child: Theme(
                             data: Theme.of(context).copyWith(
-                                outlinedButtonTheme: const OutlinedButtonThemeData(
-                                  style: ButtonStyle(
-                                    iconColor: WidgetStatePropertyAll(Colors.white),
-                                    iconSize: WidgetStatePropertyAll(30),
-                                  ),
-                                ),),
-                            child: Slidable(
-                              key: ValueKey(userData),
-                              endActionPane: ActionPane(
-                                motion: const ScrollMotion(),
-                                children: [
-                                  SlidableAction(
-                                    onPressed: (context) {
-                                      context.read<SaveDataBloc>().add(DeleteUserData(userData));
-                                    },
-                                    backgroundColor: Colors.red,
-                                    borderRadius: BorderRadius.only(topRight: Radius.circular(12),bottomRight: Radius.circular(12)),
-                                    foregroundColor: Colors.white,
-                                    icon: Icons.delete,
-                                  ),
-                                ],
+                              outlinedButtonTheme:
+                                  const OutlinedButtonThemeData(
+                                style: ButtonStyle(
+                                  iconColor:
+                                      WidgetStatePropertyAll(Colors.white),
+                                  iconSize: WidgetStatePropertyAll(30),
+                                ),
                               ),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: COLOR_CONST.secondaryColor,blurRadius: 3,
-                                    )
-                                  ]
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("${userData.name.split(' ').first}, ${userData.age}",style: TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),overflow: TextOverflow.ellipsis,maxLines: 1,),
-                                          SizedBox(width: 30,),
-                                          Text(FormatTime.formatTime(userData.time),style: TextStyle(fontSize: 12,color: COLOR_CONST.primaryLightColor.withOpacity(0.5),fontWeight: FontWeight.w600),)
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Expanded(child: Text(userData.note))
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
                             ),
+                            child: Slidable(
+                                key: ValueKey(userData),
+                                endActionPane: ActionPane(
+                                  motion: const ScrollMotion(),
+                                  children: [
+                                    SlidableAction(
+                                      onPressed: (context) {
+                                        context.read<SaveDataBloc>().add(DeleteUserData(userData));
+                                      },
+                                      backgroundColor: Colors.red,
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(12),
+                                          bottomRight: Radius.circular(12)),
+                                      foregroundColor: Colors.white,
+                                      icon: Icons.delete,
+                                    ),
+                                  ],
+                                ),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: COLOR_CONST.secondaryColor,
+                                          blurRadius: 3,
+                                        )
+                                      ]),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "${userData.name.split(' ').first}, ${userData.age}",
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 1,
+                                            ),
+                                            SizedBox(
+                                              width: 30,
+                                            ),
+                                            Text(
+                                              FormatTime.formatTime(userData.time),
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: COLOR_CONST.primaryLightColor.withOpacity(0.5),
+                                                  fontWeight: FontWeight.w600),
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Expanded(child: Text(userData.note))
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )),
                           ),
                         );
                       },
@@ -117,7 +143,11 @@ class _SaveDataTabWidgetState extends State<SaveDataTabWidget> {
           child: FloatingActionButton(
             backgroundColor: Colors.white,
             onPressed: () => _showAddDataDialog(context),
-            child: Icon(Icons.add,color: COLOR_CONST.primaryColor,size: 30,),
+            child: Icon(
+              Icons.add,
+              color: COLOR_CONST.primaryColor,
+              size: 30,
+            ),
           ),
         ),
       ],
@@ -134,7 +164,12 @@ class _SaveDataTabWidgetState extends State<SaveDataTabWidget> {
       builder: (context) {
         return AlertDialog(
           backgroundColor: Colors.white,
-          title: Text('Add Data', style: TextStyle(color: COLOR_CONST.primaryLightColor,fontWeight: FontWeight.w600),),
+          title: Text(
+            'Add Data',
+            style: TextStyle(
+                color: COLOR_CONST.primaryLightColor,
+                fontWeight: FontWeight.w600),
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -158,21 +193,28 @@ class _SaveDataTabWidgetState extends State<SaveDataTabWidget> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel',style: TextStyle(color: Colors.redAccent),),
+              child: Text(
+                'Cancel',
+                style: TextStyle(color: Colors.redAccent),
+              ),
             ),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all<Color>(COLOR_CONST.primaryLightColor),
-                shape: WidgetStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))
-              ),
+                  backgroundColor: WidgetStateProperty.all<Color>(
+                      COLOR_CONST.primaryLightColor),
+                  shape: WidgetStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)))),
               onPressed: () {
                 final name = nameController.text.trim();
                 final age = int.tryParse(ageController.text.trim()) ?? 1;
                 final note = noteController.text.trim();
-                if(nameController.text.isEmpty || ageController.text.isEmpty || noteController.text.isEmpty){
+                if (nameController.text.isEmpty ||
+                    ageController.text.isEmpty ||
+                    noteController.text.isEmpty) {
                   SnackbarsAndToasts.showErrorToast("Please fill all fields");
                   return;
-                }else if(age > 110 || age < 1){
+                } else if (age > 110 || age < 1) {
                   SnackbarsAndToasts.showErrorToast("Please enter a valid age");
                   return;
                 }
@@ -180,7 +222,10 @@ class _SaveDataTabWidgetState extends State<SaveDataTabWidget> {
                 context.read<SaveDataBloc>().add(FetchUserData());
                 Navigator.of(context).pop();
               },
-              child: Text('Save',style: TextStyle(color: Colors.white),),
+              child: Text(
+                'Save',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         );

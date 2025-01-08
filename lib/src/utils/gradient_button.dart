@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkin_assessment/src/constants/color_constant.dart';
 
+///Reusable Gradient button widget
 class GradientButton extends StatelessWidget {
   final String title;
   final void Function()? onTap;
@@ -23,11 +24,6 @@ class GradientButton extends StatelessWidget {
               COLOR_CONST.primaryLightColor,
               COLOR_CONST.primaryColor,
             ],
-            // stops: const [
-            //   0.0,
-            //   0.6,
-            //   1.0,
-            // ],
           ),
           borderRadius: BorderRadius.circular(borderRadius!),
         ),
